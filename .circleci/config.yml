@@ -9,12 +9,45 @@ jobs:
       - run: 
           name: Install dependencies
           command: npm install
-
       - run:
           name: Run tests
           command: npm run test
+  test-1:
+    docker:
+      - image: cimg/node:19.4.0
+    steps:
+      - checkout
+      - run:
+          name: Echo 1
+          command: echo 1
+  test-2:
+    docker:
+      - image: cimg/node:19.4.0
+    steps:
+      - checkout
+      - run:
+          name: Echo 2
+          command: echo 2
+  deploy:
+    docker:
+      - image: cimg/node:19.4.0
+    steps:
+      - checkout
+      - run:
+          name: Deploy
+          command: echo deploying
 
 workflows:
   test-run:
     jobs:
       - build
+      - test-1:
+          requires:
+            - build
+      - test-2:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test-1
+            - test-2

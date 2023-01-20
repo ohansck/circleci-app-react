@@ -9,11 +9,10 @@ jobs:
       - run: 
         - name: Install dependencies
           command: npm install
-        - name: 
 
       - run:
         - name: Run tests
-        - command: npm run test
+          command: npm run test
 
 workflows:
   test-run:

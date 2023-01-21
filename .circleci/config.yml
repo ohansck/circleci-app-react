@@ -50,7 +50,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Save to save-hello-world-output
+          name: Save to workspace
           command: mkdir -p workspace
           command: echo "Text to be moved" > workspace/echo/output.txt
 

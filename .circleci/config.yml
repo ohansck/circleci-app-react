@@ -51,7 +51,8 @@ jobs:
       - checkout
       - run:
           name: Save to workspace
-          command: touch workspace/echo/output.txt \
+          command: mkdir -p workspace/echo \
+                   touch output.txt \
                    echo "Text to be moved" > workspace/echo/output.txt
 
       - persist_to_workspace:

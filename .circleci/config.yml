@@ -52,6 +52,7 @@ jobs:
       - run:
           name: Save to workspace
           command: mkdir -p workspace/echo \
+                   ls \
                    touch output.txt \
                    echo "Text to be moved" > workspace/echo/output.txt
 

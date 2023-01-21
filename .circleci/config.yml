@@ -56,7 +56,7 @@ jobs:
       - run: echo "Text to be moved" > workspace/echo/output.txt
       - run: ls
       - persist_to_workspace:
-          root: ~/workspace
+          root: circleci-app-react/workspace
           paths:
             - echo
   print-output-file:

@@ -47,21 +47,22 @@ jobs:
   save-hello-world-output:
     docker:
       - image: cimg/node:19.4.0
+    working_directory: /workspace
     steps:
       - checkout
       - run:
           name: Save to workspace
           command: mkdir -p workspace/echo 
-      - run: touch ./workspace/echo/output.txt
+      - run: touch /workspace/echo/output.txt
       - run: echo "Text to be moved" > workspace/echo/output.txt
       - run: ls
       - persist_to_workspace:
-          root: circleci-app-react/workspace
           paths:
             - echo
   print-output-file:
     docker:
       - image: cimg/node:19.4.0
+    working_directory: /workspace
     steps:
       - attach_workspace:
           at: /workspace/echo

@@ -63,10 +63,9 @@ jobs:
   print-output-file:
     docker:
       - image: cimg/node:19.4.0
-    working_directory: /workspace
     steps:
       - attach_workspace:
-          at: /workspace/echo
+          at: workspace
       - run:
           name: Output file 
           command: cat /workspace/echo/output.txt

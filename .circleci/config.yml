@@ -51,20 +51,22 @@ jobs:
       - checkout
       - run:
           name: Save to save-hello-world-output
-          command: echo "Text to be moved" > output.txt
+          command: mkdir -p workspace
+          command: echo "Text to be moved" > workspace/echo/output.txt
+
       - persist_to_workspace:
-          root: /tmp/echo
+          root: /workspace
           paths:
-            - out
+            - echo
   print-output-file:
     docker:
       - image: cimg/node:19.4.0
     steps:
       - attach_workspace:
-          at: /tmp/echo/out
+          at: /workspace/echo
       - run:
           name: Output file 
-          command: cat /tmp/echo/out/output.txt
+          command: cat /workspace/echo/output.txt
 
 workflows:
   test-run:

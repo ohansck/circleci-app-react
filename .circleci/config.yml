@@ -54,6 +54,7 @@ jobs:
           command: mkdir -p workspace/echo 
       - run: touch ./workspace/echo/output.txt
       - run: echo "Text to be moved" > workspace/echo/output.txt
+      - run: ls
       - persist_to_workspace:
           root: /workspace
           paths:

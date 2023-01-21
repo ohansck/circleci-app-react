@@ -55,6 +55,7 @@ jobs:
       - run: touch /workspace/echo/output.txt
       - run: echo "Text to be moved" > workspace/echo/output.txt
       - run: ls
+      - run: pwd
       - persist_to_workspace:
           root: /workspace
           paths:

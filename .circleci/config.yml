@@ -47,7 +47,7 @@ jobs:
   save-hello-world-output:
     docker:
       - image: cimg/node:19.4.0
-    working_directory: workspace
+    working_directory: /workspace
     steps:
       - checkout
       - run:

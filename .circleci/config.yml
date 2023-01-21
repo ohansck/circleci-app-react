@@ -52,12 +52,12 @@ jobs:
       - run:
           name: Save to workspace
           command: mkdir -p workspace/echo 
-      - run: touch /workspace/echo/output.txt
+      - run: touch workspace/echo/output.txt
       - run: echo "Text to be moved" > workspace/echo/output.txt
       - run: ls
       - run: pwd
       - persist_to_workspace:
-          root: /workspace
+          root: workspace
           paths:
             - echo
   print-output-file:

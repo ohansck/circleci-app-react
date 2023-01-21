@@ -68,7 +68,7 @@ jobs:
           at: workspace
       - run:
           name: Output file 
-          command: cat /workspace/echo/output.txt
+          command: cat workspace/echo/output.txt
 
 workflows:
   test-run:
